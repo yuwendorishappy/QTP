@@ -3,9 +3,9 @@ package product.WebDriver;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import product.BaseWebDriverTest;
+import product.BaseTest;
 
-public class 测试 extends BaseWebDriverTest{
+public class 测试 extends BaseTest{
 
   @Test
   public void testBaidu() throws Exception {

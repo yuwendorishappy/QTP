@@ -14,7 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 
-public class BaseWebDriverTest {
+public class BaseTest {
 
 	protected static Selenium selenium;
 	private static Properties prop = null;
@@ -22,7 +22,7 @@ public class BaseWebDriverTest {
 	protected String baseUrl;
 
 	static {
-		InputStream in = BaseWebDriverTest.class.getResourceAsStream("/selenium.properties");
+		InputStream in = BaseTest.class.getResourceAsStream("/selenium.properties");
 		try {
 			prop = new Properties();
 			prop.load(in);
@@ -35,7 +35,7 @@ public class BaseWebDriverTest {
 	public void before() throws Exception {
 
 		String seleniumRunMode = prop.getProperty("seleniumRunMode");
-		baseUrl = BaseWebDriverTest.prop.getProperty("baseUrl");
+		baseUrl = BaseTest.prop.getProperty("baseUrl");
 
 		if ("webDriver".equals(seleniumRunMode)) {
 
