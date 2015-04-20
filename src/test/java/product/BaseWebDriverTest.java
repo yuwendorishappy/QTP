@@ -14,7 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.Selenium;
 
-public class Base {
+public class BaseWebDriverTest {
 
 	protected static Selenium selenium;
 	private static Properties prop = null;
@@ -22,7 +22,7 @@ public class Base {
 	protected String baseUrl;
 
 	static {
-		InputStream in = Base.class.getResourceAsStream("/selenium.properties");
+		InputStream in = BaseWebDriverTest.class.getResourceAsStream("/selenium.properties");
 		try {
 			prop = new Properties();
 			prop.load(in);
@@ -34,23 +34,23 @@ public class Base {
 	@Before
 	public void before() throws Exception {
 
-		String seleniumDriver = prop.getProperty("seleniumDriver");
+		String seleniumRunMode = prop.getProperty("seleniumRunMode");
+		baseUrl = BaseWebDriverTest.prop.getProperty("baseUrl");
 
-		if ("webdriver".equals(seleniumDriver)) {
+		if ("webDriver".equals(seleniumRunMode)) {
 
-			String type = prop.getProperty("type");
-			baseUrl = Base.prop.getProperty("baseUrl");
-			if ("chrome".equals(type)) {
+			String browser = prop.getProperty("browser");
+			if ("chrome".equals(browser)) {
 
 				System.setProperty("webdriver.chrome.driver",
 						prop.getProperty("selenium.webDriver.File"));
 				driver = new ChromeDriver();
-			} else if ("firefox".equals(type)) {
+			} else if ("firefox".equals(browser)) {
 
 				System.setProperty("webdriver.firefox.bin",
 						prop.getProperty("selenium.webDriver.File"));
 				driver = new FirefoxDriver();
-			} else if ("iexplore".equals(type)) {
+			} else if ("iexplore".equals(browser)) {
 
 				System.setProperty("webdriver.ie.driver",
 						prop.getProperty("selenium.webDriver.File"));
@@ -61,11 +61,11 @@ public class Base {
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		} else if ("seleniumRC".equals(seleniumDriver)) {
-			selenium = new DefaultSelenium(prop.getProperty("selenium.rc.url"),
-					Integer.valueOf(prop.getProperty("selenium.rc.port")), "*"
-							+ prop.getProperty("selenium.browser"),
-					prop.getProperty("selenium.test.url"));
+		} else if ("remoteControl".equals(seleniumRunMode)) {
+			selenium = new DefaultSelenium(prop.getProperty("rc.url"),
+					Integer.valueOf(prop.getProperty("rc.port")), "*"
+							+ prop.getProperty("browser"),
+					prop.getProperty("test.url"));
 			selenium.start();
 			selenium.windowMaximize();
 
@@ -74,11 +74,11 @@ public class Base {
 
 	@After
 	public void after() {
-		String seleniumDriver = prop.getProperty("seleniumDriver");
-		if ("webdriver".equals(seleniumDriver)) {
+		String seleniumDriver = prop.getProperty("seleniumRunMode");
+		if ("webDriver".equals(seleniumDriver)) {
 			driver.close();
 			driver.quit();
-		} else if ("seleniumRC".equals(seleniumDriver)) {
+		} else if ("remoteControl".equals(seleniumDriver)) {
 			selenium.stop();
 		}
 
