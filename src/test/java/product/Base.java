@@ -84,15 +84,4 @@ public class Base {
 
 	}
 
-	protected String getDataName(String putName, String name, String tip) {
-		int i = 0;
-		do {
-			i++;
-			selenium.type("name=" + putName, name + i);
-			selenium.click("css=button[type=\"submit\"]");
-			selenium.click("name=" + putName);
-		} while (tip.equals(selenium.getText("css=div.tip-inner.tip-bg-image")));
-		return name + i;
-	}
-
 }
