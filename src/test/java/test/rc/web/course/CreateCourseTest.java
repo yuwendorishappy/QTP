@@ -12,6 +12,8 @@ public class CreateCourseTest  extends BaseTest {
         selenium.open("/");
         selenium.click("css=li.hidden-xs > a");
         selenium.waitForPageToLoad("30000");
+        selenium.type("id=login_username", "admin");
+        selenium.type("id=login_password", "admin");
         selenium.click("//button[@type='submit']");
         selenium.waitForPageToLoad("30000");
         selenium.click("css=li.visible-lg > a");
