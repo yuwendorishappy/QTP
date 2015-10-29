@@ -56,7 +56,7 @@ function initDatabase($argv)
         exit($code);
     }
 
-    $command = "mysqldump -uroot -proot '{$dbname}' --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --ignore-table=exam.edusoho.cn.cache --ignore-table=exam.edusoho.cn.cloud_app_logs --ignore-table=exam.edusoho.cn.log --ignore-table=exam.edusoho.cn.session2 --ignore-table=exam.edusoho.cn.user_token --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check > ~/edusoho.sql";
+    $command = "mysqldump -uroot -proot '{$dbname}' --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --ignore-table=cache --ignore-table=cloud_app_logs --ignore-table=log  --ignore-table=migration_versions --ignore-table=session2 --ignore-table=user_token --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check > ~/edusoho.sql";
     exec($command, $output, $code);
 
     if ($code != 0) {
