@@ -56,7 +56,10 @@ function initDatabase($argv)
         exit($code);
     }
 
-    $command = "mysqldump -uroot -proot '{$dbname}' --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --ignore-table=cache --ignore-table=cloud_app_logs --ignore-table=log  --ignore-table=migration_versions --ignore-table=session2 --ignore-table=user_token --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check > ~/edusoho.sql";
+    $command = "mysqldump -uroot -proot '{$dbname}' ";
+    $command .= " --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check ";
+    $command .= " --ignore-table={$dbname}.cache --ignore-table={$dbname}.cloud_app_logs --ignore-table={$dbname}.log  --ignore-table={$dbname}.migration_versions --ignore-table={$dbname}.session2 --ignore-table={$dbname}.user_token ";
+    $command .= " > ~/edusoho.sql";
     exec($command, $output, $code);
 
     if ($code != 0) {
