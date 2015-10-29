@@ -8,7 +8,7 @@ import product.BaseTest;
 public class CreateCourseTest  extends BaseTest {
 
     @Test
-    public void test创建课程() throws Exception {
+    public void testCreateCourse() throws Exception {
         selenium.open("/");
         selenium.click("css=li.hidden-xs > a");
         selenium.waitForPageToLoad("30000");
