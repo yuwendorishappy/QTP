@@ -4,7 +4,7 @@
 function initDatabase($argv)
 {
     $workspace = $argv[1];
-    $branch  = !empty($argv[2]) ? $argv[2] : 'master';
+    $branch = !empty($argv[2]) ? $argv[2] : 'master';
     $command = "cd {$workspace};git pull origin {$branch}";
     exec($command, $output, $code);
     if ($code != 0) {
@@ -35,7 +35,6 @@ function initDatabase($argv)
 
     $command = "mysql -u{$dbUser} -p{$dbPassword} -h {$host} -P {$port} -Nse 'show tables' {$dbname} | while read table; do [ \"\$table\" != \"migration_versions\" ] && mysql -u{$dbUser} -p{$dbPassword} -h {$host} -P {$port} -e \"truncate table \$table\" {$dbname}; done";
     exec($command, $output, $code);
-
     if ($code != 0) {
         echo "清空EduSoho所有表数据失败\n";
         exit($code);
@@ -57,7 +56,7 @@ function initDatabase($argv)
         exit($code);
     }
 
-    $command = "mysqldump -uroot -proot '{$dbname}' --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --ignore-table=exam.edusoho.cn.cache --ignore-table=exam.edusoho.cn.cloud_app_logs --ignore-table=exam.edusoho.cn.log --ignore-table=exam.edusoho.cn.session2 --ignore-table=exam.edusoho.cn.user_token --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check > ~/edusoho.sql'";
+    $command = "mysqldump -uroot -proot '{$dbname}' --no-create-info --complete-insert --skip-comments --extended-insert --skip-add-locks --ignore-table=exam.edusoho.cn.cache --ignore-table=exam.edusoho.cn.cloud_app_logs --ignore-table=exam.edusoho.cn.log --ignore-table=exam.edusoho.cn.session2 --ignore-table=exam.edusoho.cn.user_token --skip-disable-keys --skip-set-charset --skip-tz-utc --skip-debug-check > ~/edusoho.sql";
     exec($command, $output, $code);
 
     if ($code != 0) {
@@ -81,4 +80,3 @@ function getConfig($tag, $yml)
 }
 
 initDatabase($argv);
-
