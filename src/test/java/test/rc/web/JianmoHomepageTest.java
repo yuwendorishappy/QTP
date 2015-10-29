@@ -11,7 +11,7 @@ public class JianmoHomepageTest extends BaseTest {
 		selenium.open("/");
 		selenium.click("link=更多课程");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("link=EDUSOHO测试站");
+		selenium.click("css=a.navbar-brand");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=最热");
 		selenium.click("link=推荐");
