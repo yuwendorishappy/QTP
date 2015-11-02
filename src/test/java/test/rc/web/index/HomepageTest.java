@@ -31,23 +31,23 @@ public class HomepageTest extends BaseTest {
 		selenium.click("//span[2]");
 		selenium.click("//span[3]");
 		selenium.click("css=span.swiper-pagination-switch");
-		verifyEquals("", selenium.getText("//img[@alt='网校基本设置']"));
+		verifyEquals("网校基本设置", selenium.getText("//img[@alt='网校基本设置']"));
 		selenium.click("xpath=(//a[contains(text(),'产品介绍')])[3]");
-		verifyEquals("", selenium.getText("//img[@alt='EduSoho教育云服务介绍']"));
+		verifyEquals("EduSoho教育云服务介绍", selenium.getText("//img[@alt='EduSoho教育云服务介绍']"));
 		selenium.click("//a[contains(text(),'使用教程')]");
-		verifyEquals("", selenium.getText("//img[@alt='课程发布指南']"));
+		verifyEquals("课程发布指南", selenium.getText("//img[@alt='课程发布指南']"));
 		selenium.click("css=li..js-course-filter > a");
 		selenium.click("link=最新");
 		selenium.runScript("window.scroll(0, 800);");
 		Thread.sleep(1000);
-		verifyEquals("", selenium.getText("//img[@alt='EduSoho技术服务套餐']"));
+		verifyEquals("EduSoho技术服务套餐", selenium.getText("//img[@alt='EduSoho技术服务套餐']"));
 		selenium.click("link=最热");
 		selenium.runScript("window.scroll(0, 800);");
 		Thread.sleep(1000);
 		selenium.click("link=推荐");
 		selenium.runScript("window.scroll(0, 800);");
 		Thread.sleep(1000);
-		verifyEquals("", selenium.getText("//img[@alt='课程发布指南']"));
+		verifyEquals("课程发布指南", selenium.getText("//img[@alt='课程发布指南']"));
 		selenium.click("link=更多课程");
 		selenium.waitForPageToLoad("30000");
 		verifyEquals("全部 - EduSoho网络课堂 - 三分钟帮助您建设功能完备的网校！ - Powered By EduSoho", selenium.getTitle());
@@ -206,7 +206,7 @@ public class HomepageTest extends BaseTest {
 		selenium.click("//nav/div/form/div/button");
 		selenium.waitForPageToLoad("30000");
 		verifyEquals("搜索：全部课程 - EduSoho网络课堂 - 三分钟帮助您建设功能完备的网校！ - Powered By EduSoho", selenium.getTitle());
-		verifyEquals("", selenium.getText("//img[@alt='网校运营指南']"));
+		verifyEquals("网校运营指南", selenium.getText("//img[@alt='网校运营指南']"));
 	}
 
 	@After
