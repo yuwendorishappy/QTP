@@ -210,7 +210,7 @@ public class HomepageTest extends BaseTest {
 
 	@After
 	public void after() {
-		super.after();
 		selenium.open("/logout");
+		super.after();
 	}
 }
