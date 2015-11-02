@@ -7,6 +7,7 @@ import product.BaseTest;
 
 public class CreateCourseTest  extends BaseTest {
 
+    //创建课程和图文课时,并发布
     @Test
     public void testCreateCourse() throws Exception {
         selenium.open("/");
