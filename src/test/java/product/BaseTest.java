@@ -20,8 +20,8 @@ public class BaseTest {
 
 	protected static Selenium selenium;
 	private static Properties prop = null;
-	protected WebDriver driver = null;
-	protected String baseUrl;
+	protected static WebDriver driver = null;
+	protected static String baseUrl;
 
 	static {
 		InputStream in = BaseTest.class.getResourceAsStream("/selenium.properties");
