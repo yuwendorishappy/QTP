@@ -34,7 +34,7 @@ public class BaseTest {
 	}
 
 	@BeforeClass
-	public void before() throws Exception {
+	public static void before() throws Exception {
 
 		String seleniumRunMode = prop.getProperty("seleniumRunMode");
 		baseUrl = BaseTest.prop.getProperty("baseUrl");
@@ -75,7 +75,7 @@ public class BaseTest {
 	}
 
 	@AfterClass
-	public void after() {
+	public static void after() {
 		String seleniumDriver = prop.getProperty("seleniumRunMode");
 		if ("webDriver".equals(seleniumDriver)) {
 			driver.close();
