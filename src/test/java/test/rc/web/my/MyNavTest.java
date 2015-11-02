@@ -10,9 +10,9 @@ import product.BaseTest;
 
 public class MyNavTest extends BaseTest {
 
+
 	@Before
 	public void before() throws Exception {
-		super.before();
 		selenium.open("/login");
 		selenium.click("css=li.hidden-xs > a");
 		selenium.waitForPageToLoad("30000");
@@ -123,7 +123,6 @@ public class MyNavTest extends BaseTest {
 	@After
 	public void after() {
 		selenium.open("/logout");
-		super.after();
 	}
 
 }

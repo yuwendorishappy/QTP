@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,7 +33,7 @@ public class BaseTest {
 		}
 	}
 
-	@Before
+	@BeforeClass
 	public void before() throws Exception {
 
 		String seleniumRunMode = prop.getProperty("seleniumRunMode");
@@ -72,7 +74,7 @@ public class BaseTest {
 		}
 	}
 
-	@After
+	@AfterClass
 	public void after() {
 		String seleniumDriver = prop.getProperty("seleniumRunMode");
 		if ("webDriver".equals(seleniumDriver)) {
