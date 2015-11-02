@@ -11,7 +11,7 @@ public class HomepageTest extends BaseTest {
 
 	@Before
 	public void before() throws Exception {
-		selenium.open("/login");
+		selenium.open("/");
 		selenium.click("css=li.hidden-xs > a");
 		selenium.waitForPageToLoad("30000");
 		selenium.type("id=login_username", "admin");

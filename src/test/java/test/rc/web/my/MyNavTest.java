@@ -13,7 +13,7 @@ public class MyNavTest extends BaseTest {
 
 	@Before
 	public void before() throws Exception {
-		selenium.open("/login");
+		selenium.open("/");
 		selenium.click("css=li.hidden-xs > a");
 		selenium.waitForPageToLoad("30000");
 		selenium.type("id=login_username", "admin");
@@ -25,13 +25,6 @@ public class MyNavTest extends BaseTest {
 	//我的主页
 	@Test
 	public void testMyHomepage() throws Exception {
-		selenium.open("/");
-		selenium.click("css=li.hidden-xs > a");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("id=login_username", "admin");
-		selenium.type("id=login_password", "admin");
-		selenium.click("//button[@type='submit']");
-		selenium.waitForPageToLoad("30000");
 		selenium.click("link=个人主页");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=在学课程");
@@ -51,13 +44,6 @@ public class MyNavTest extends BaseTest {
 	//我的设置
 	@Test
 	public void testMySetting() throws Exception {
-		selenium.open("/");
-		selenium.click("css=li.hidden-xs > a");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("id=login_username", "admin");
-		selenium.type("id=login_password", "admin");
-		selenium.click("//button[@type='submit']");
-		selenium.waitForPageToLoad("30000");
 		selenium.click("link=个人设置");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=头像设置");
@@ -71,13 +57,6 @@ public class MyNavTest extends BaseTest {
 	//帐号中心
 	@Test
 	public void testMoneyCenter() throws Exception {
-		selenium.open("/login");
-		selenium.click("css=li.hidden-xs > a");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("id=login_username", "admin");
-		selenium.type("id=login_password", "admin");
-		selenium.click("//button[@type='submit']");
-		selenium.waitForPageToLoad("30000");
 		selenium.click("link=账户中心");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=我的订单");
@@ -103,13 +82,6 @@ public class MyNavTest extends BaseTest {
 	//私信
 	@Test
 	public void testMyNavTest() throws Exception {
-		selenium.open("/login");
-		selenium.click("css=li.hidden-xs > a");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("id=login_username", "admin");
-		selenium.type("id=login_password", "admin");
-		selenium.click("//button[@type='submit']");
-		selenium.waitForPageToLoad("30000");
 		selenium.mouseOver("//nav/div/ul/li[3]/a");
 		selenium.click("xpath=(//a[contains(@href, '/message/')])[2]");
 		selenium.waitForPageToLoad("30000");
