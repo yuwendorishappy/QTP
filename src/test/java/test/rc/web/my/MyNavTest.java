@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import com.thoughtworks.selenium.*;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
