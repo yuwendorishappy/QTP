@@ -5,8 +5,9 @@ import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import java.util.regex.Pattern;
+import product.BaseTest;
 
-public class MyNavTest {
+public class MyNavTest extends BaseTest {
 
 	@Before
 	public void before() throws Exception {
