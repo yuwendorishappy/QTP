@@ -1,4 +1,4 @@
-package test.rc.web;
+package test.rc.web.course;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
