@@ -2,7 +2,6 @@ package test.rc.web.course;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.regex.Pattern;
 import product.BaseTest;
 
 public class CreateCourseTest  extends BaseTest {
