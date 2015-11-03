@@ -1,10 +1,8 @@
-package com.example.tests;
+package test.rc.web.index;
 
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
-import static org.junit.Assert.*;
-import java.util.regex.Pattern;
 import product.BaseTest;
 
 public class HomepageTest extends BaseTest {
