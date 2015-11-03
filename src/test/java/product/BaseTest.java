@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,8 +20,8 @@ public class BaseTest {
 
 	protected static Selenium selenium;
 	private static Properties prop = null;
-	protected WebDriver driver = null;
-	protected String baseUrl;
+	protected static WebDriver driver = null;
+	protected static String baseUrl;
 
 	static {
 		InputStream in = BaseTest.class.getResourceAsStream("/selenium.properties");
@@ -31,8 +33,8 @@ public class BaseTest {
 		}
 	}
 
-	@Before
-	public void before() throws Exception {
+	@BeforeClass
+	public static void beforeClass() throws Exception {
 
 		String seleniumRunMode = prop.getProperty("seleniumRunMode");
 		baseUrl = BaseTest.prop.getProperty("baseUrl");
@@ -72,8 +74,8 @@ public class BaseTest {
 		}
 	}
 
-	@After
-	public void after() {
+	@AfterClass
+	public static void afterClass() {
 		String seleniumDriver = prop.getProperty("seleniumRunMode");
 		if ("webDriver".equals(seleniumDriver)) {
 			driver.close();
