@@ -7,7 +7,6 @@ import product.BaseTest;
 
 public class MyNavTest extends BaseTest {
 
-
 	@Before
 	public void before() throws Exception {
 		selenium.open("/");
