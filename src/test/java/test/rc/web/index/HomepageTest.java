@@ -71,9 +71,9 @@ public class HomepageTest extends BaseTest {
 		selenium.click("//div[2]/div/ul/li[3]");
 		selenium.click("id=bar-classroom-btn");
 		selenium.click("id=bar-course-btn");
-		selenium.click("css=i.es-icon.es-icon-notifications");
-		selenium.click("css=i.es-icon.es-icon-arrowforward");
-		selenium.selectWindow("null");
+		//selenium.click("css=i.es-icon.es-icon-notifications");
+		//selenium.click("css=i.es-icon.es-icon-arrowforward");
+		//selenium.selectWindow("null");
 	}
 
 
