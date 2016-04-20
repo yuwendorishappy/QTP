@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [seleniumDemo]">
+  <parameter name="telephonepwd" value="123456789"/>
+  <parameter name="chrome" value="F:\gitwork\SeleniumTest\seleniumWebDriver\chromedriver.exe"/>
+  <parameter name="youxiangname" value="测试管理员"/>
+  <parameter name="youxiangpwd" value="kaifazhe"/>
+  <parameter name="userloginname" value="lisi"/>
+  <parameter name="url" value="http://t5.edusoho.cn"/>
+  <parameter name="userloginpwd" value="123456789"/>
+  <parameter name="telephonename" value="13757160849"/>
+  <test name="seleniumDemo(failed)">
+    <classes>
+      <class name="user.UserTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="youxianglogin" invocation-numbers="0"/>
+          <include name="usernamelogin" invocation-numbers="0"/>
+          <include name="aftermethod"/>
+          <include name="telephonelogin" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- user.UserTest -->
+    </classes>
+  </test> <!-- seleniumDemo(failed) -->
+</suite> <!-- Failed suite [seleniumDemo] -->
