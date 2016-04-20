@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 
 public class UserTest {
-	public WebDriver driver;
+	public WebDriver driver;   
 	private WebElement login,loginpage,username,password,remember,loginbutton;
 	
   @Parameters({"url","chrome"})
