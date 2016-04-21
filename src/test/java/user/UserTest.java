@@ -92,10 +92,12 @@ public class UserTest {
 	 login.click();
 	 loginpage=driver.findElement(By.xpath("//*[@id='content-container']/div/div[1]/a[1]"));
 	 loginpage.click();
-	 username=driver.findElement(By.id("login_username"));    
+//	 driver.findElement(By.linkText("注册账号")).click();
+//	 driver.findElement(By.linkText("登录账号"));
+	 username=driver.findElement(By.xpath("//*[@id='login_username']"));    
 	 username.sendKeys(userloginname);
 	
-	 Assert.assertEquals("lisi", userloginname);
+	 Assert.assertEquals("test", userloginname);
 	 System.out.println("..............'userloginname'+'‘OK'+.................");
 	 
 	 password=driver.findElement(By.id("login_password"));
