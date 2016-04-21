@@ -2,16 +2,12 @@
 <suite name="seleniumDemo">
     <parameter name="chrome" value="F:\gitwork\SeleniumTest\seleniumWebDriver\chromedriver.exe"/>
     <parameter name="url" value="http://t5.edusoho.cn"/>
-    <parameter name="youxiangname" value="测试管理员"/>
-    <parameter name="youxiangpwd"  value="kaifazhe"/>
-    <parameter name="telephonename" value="13757160849"/>
-    <parameter name="telephonepwd"  value="123456789"/>
-    <parameter name="userloginname" value="lisi"/>
-    <parameter name="userloginpwd"  value="123456789"/>
+    <parameter name="userloginname" value="测试管理员"/>
+    <parameter name="userloginpwd"  value="kaifazhe"/>
 	<test name="seleniumDemo" preserve-order="true" verbose="10">
 		<classes>
 			<class name="user.UserTest">
-				<methods1>
+				<methods>
 				    <include name="youxianglogin" />
 					<include name="telephonelogin" />
 					<include name="usernamelogin" />
