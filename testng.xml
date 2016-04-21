@@ -17,8 +17,6 @@
 					<include name="usernamelogin" />
 				</methods>
 			</class>
-			<class name="homepage.Homepage"/>
-			<class name="homepage.homepagemenu"/>
 		</classes>				
 	</test>
 </suite>
