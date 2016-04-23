@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="seleniumDemo">
-    <parameter name="chrome" value="./seleniumWebDriver\chromedriver.exe"/>
-    <parameter name="url" value="http://t5.edusoho.cn"/>
     <parameter name="youxiangname" value="286031476@qq.com"/>
     <parameter name="youxiangpwd" value="123456789"/>
     <parameter name="telephonename" value="13757160849"/>

@@ -23,17 +23,32 @@ public class BaseTest {
 
 	@BeforeClass
 	public void beforeClass(){
-		InputStream in = BaseTest.class.getResourceAsStream("/selenium.properties");
+		String os = this.getOs();
+		InputStream in = BaseTest.class.getResourceAsStream("/"+os+"-selenium.properties");
 		try {
 			prop = new Properties();
 			prop.load(in);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	@BeforeMethod
 	public void beforeMethod() {
+		this.initWebDriver();
+		driver.navigate().to(baseUrl);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+
+	@AfterMethod
+	public void aftermethod() {
+		driver.close();
+		driver.quit();
+	}
+	
+	private void initWebDriver(){
 		baseUrl = BaseTest.prop.getProperty("test.url");
 		String browser = prop.getProperty("browser");
 		if ("chrome".equals(browser)) {
@@ -46,16 +61,13 @@ public class BaseTest {
 			System.setProperty("webdriver.ie.driver", prop.getProperty("selenium.webDriver"));
 			driver = new InternetExplorerDriver();
 		}
-		driver.navigate().to(baseUrl);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@AfterMethod
-	public void aftermethod() {
-		driver.close();
-		driver.quit();
-
+	private String getOs(){
+		String os = System.getProperty("os.name");
+		if(os.startsWith("Windows")){
+			return "windows";
+		}
+		return "linux";
 	}
-
 }

@@ -4,7 +4,7 @@
 	<groupId>test</groupId>
 	<artifactId>seleniumTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-<name>JaCoCo Examples</name>
+	<name>JaCoCo Examples</name>
 	<repositories>
 		<repository>
 			<id>repo-mirror</id>
@@ -21,10 +21,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<selenium.webDriver>./seleniumWebDriver/chromedriver.exe</selenium.webDriver>
+		<selenium.os>windows</selenium.os>
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -45,12 +46,22 @@
 			<artifactId>testng</artifactId>
 			<version>6.8.21</version>
 		</dependency>
-		
 	</dependencies>
-	
-	
-	
+
+	<profiles>
+		<profile>
+			<id>linux</id> 
+			<properties>  
+                   <selenium.os>linux</selenium.os>  
+            </properties> 
+		</profile>
+	</profiles>
 	<build>
+		<testResources>
+			<testResource>
+			<directory>src/test/java/resources/${selenium.os}/selenium.properties</directory>
+			</testResource>
+		</testResources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -82,15 +93,12 @@
 						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
-
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-
 				<executions>
 					<execution>
 						<id>pre-test</id>
@@ -116,17 +124,16 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<plugin>  
-			    <groupId>org.apache.maven.plugins</groupId>  
-			    <artifactId>maven-surefire-plugin</artifactId>  
-			    <version>2.5</version>  
-			    <configuration>  
-			        <suiteXmlFiles>  
-			            <suiteXmlFile>testng.xml</suiteXmlFile>  
-			        </suiteXmlFiles>  
-			    </configuration>  
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
 </project>
