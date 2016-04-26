@@ -57,11 +57,6 @@
 		</profile>
 	</profiles>
 	<build>
-		<testResources>
-			<testResource>
-			<directory>src/test/java/resources/${selenium.os}/selenium.properties</directory>
-			</testResource>
-		</testResources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
